@@ -118,7 +118,7 @@ Disassembly of section .text:
   be:	80 81       	ld	r24, Z
   c0:	80 64       	ori	r24, 0x40	; 64
   c2:	80 83       	st	Z, r24
-		  while (ADCSRA & (1<<ADSC)); // Wait for conversion to complete
+		  while (ADCSRA & (1<<ADSC)); // Esperar que la lecura termine
   c4:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
   c8:	86 fd       	sbrc	r24, 6
   ca:	fc cf       	rjmp	.-8      	; 0xc4 <main+0x44>
