@@ -27,7 +27,7 @@
 
 	  while (1){
 		  ADCSRA |= (1<<ADSC); // Start ADC conversion
-		  while (ADCSRA & (1<<ADSC)); // Wait for conversion to complete
+		  while (ADCSRA & (1<<ADSC)); // Esperar que la lecura termine
 		  uint16_t servo_pos = ADC * 4.8866;// Mapeo
 		  servo_pos = (servo_pos>=999)? servo_pos : 999;// Evitar que decienda más de 999 ya que es 0 grados
 		  OCR1A = servo_pos;
