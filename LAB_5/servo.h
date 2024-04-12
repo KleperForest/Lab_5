@@ -1,4 +1,4 @@
-
+// .h
 #include "servo.c"
 // Valiables
 void initServo(void);
