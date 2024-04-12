@@ -28,12 +28,10 @@
 		  while (ADCSRA & (1<<ADSC)); // Esperar que la lecura termine del ADC
 		  float servo_val = ADC * 4.8866;// Mapeo
 		 
-		  Val_servo_pos( servo_val);
-		  OCR1A = servo_val;
-		  _delay_ms(100); // Delay for servo to reach positio
+		  OCR1A = Val_servo_pos(servo_val);
+		  _delay_ms(100); // Delay for servo to reach positivo
 		  
 	  }
-	  return 0;
   }
 
 
