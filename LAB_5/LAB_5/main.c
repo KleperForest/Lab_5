@@ -9,7 +9,7 @@
 //*********************************************************************
   
   #include <avr/io.h>
-  #include <util.delay.h>
+  #include <util/delay.h>
   #include "Controller_Servo.h"
 //servo_pos valor del potenciometro
   int main(void)
@@ -26,13 +26,14 @@
 	  while (1){
 		  ADCSRA |= (1<<ADSC); // Comenzar ADC 
 		  while (ADCSRA & (1<<ADSC)); // Esperar que la lecura termine del ADC
-		  uint16_t servo_pos = ADC * 4.8866;// Mapeo
+		  float servo_val = ADC * 4.8866;// Mapeo
 		 
-		  Val_servo_pos(servo_pos);
-		  OCR1A = servo_pos;
+		  Val_servo_pos( servo_val);
+		  OCR1A = servo_val;
 		  _delay_ms(100); // Delay for servo to reach positio
-		  return 0;
+		  
 	  }
+	  return 0;
   }
 
 
