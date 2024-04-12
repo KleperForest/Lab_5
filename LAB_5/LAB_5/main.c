@@ -11,9 +11,6 @@
   #include <avr/io.h>
   #include <util/delay.h>
 
-  #define SERVO_MIN_POS 999 // 0 degrees
-  #define SERVO_MAX_POS 4999 // 180 degrees
-
   int main(void)
   {
 	  DDRB |= (1<<PB1); // Set PB1 as output

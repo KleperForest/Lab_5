@@ -70,8 +70,8 @@ Disassembly of section .text:
   7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000080 <main>:
-  #define SERVO_MIN_POS 999 // 0 degrees
-  #define SERVO_MAX_POS 4999 // 180 degrees
+  #include <avr/io.h>
+  #include <util/delay.h>
 
   int main(void)
   {
