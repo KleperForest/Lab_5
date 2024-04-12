@@ -102,7 +102,8 @@ Disassembly of section .text:
 	   //OCR1A = 1999; // Set initial position to 90 degrees
 
 	   while (1){
-		   OCR1A = 999; // Set position to  degrees
+		   
+		   OCR1A = 999; // Set position to 0 degrees
   a6:	e8 e8       	ldi	r30, 0x88	; 136
   a8:	f0 e0       	ldi	r31, 0x00	; 0
   aa:	87 ee       	ldi	r24, 0xE7	; 231
@@ -125,7 +126,7 @@ Disassembly of section .text:
   c0:	00 c0       	rjmp	.+0      	; 0xc2 <main+0x42>
   c2:	00 00       	nop
 		   _delay_ms(10000);
-		   OCR1A = 1999; // Set position to  degrees
+		   OCR1A = 1999; // Set position to 45 degrees
   c4:	8f ec       	ldi	r24, 0xCF	; 207
   c6:	97 e0       	ldi	r25, 0x07	; 7
   c8:	91 83       	std	Z+1, r25	; 0x01
@@ -140,7 +141,7 @@ Disassembly of section .text:
   da:	00 c0       	rjmp	.+0      	; 0xdc <main+0x5c>
   dc:	00 00       	nop
 		   _delay_ms(10000);
-		   OCR1A = 2999; // Set position to  degrees
+		   OCR1A = 2999; // Set position to 90 degrees
   de:	87 eb       	ldi	r24, 0xB7	; 183
   e0:	9b e0       	ldi	r25, 0x0B	; 11
   e2:	91 83       	std	Z+1, r25	; 0x01
@@ -155,7 +156,7 @@ Disassembly of section .text:
   f4:	00 c0       	rjmp	.+0      	; 0xf6 <main+0x76>
   f6:	00 00       	nop
 		   _delay_ms(10000);
-		   OCR1A = 3999; // Set position to  degrees
+		   OCR1A = 3999; // Set position to 135 degrees
   f8:	8f e9       	ldi	r24, 0x9F	; 159
   fa:	9f e0       	ldi	r25, 0x0F	; 15
   fc:	91 83       	std	Z+1, r25	; 0x01
@@ -170,7 +171,7 @@ Disassembly of section .text:
  10e:	00 c0       	rjmp	.+0      	; 0x110 <main+0x90>
  110:	00 00       	nop
 		   _delay_ms(10000);
-		   OCR1A = 4999; // Set position to 180 degrees
+		   OCR1A = 4999; // Set position 180to 180 degrees
  112:	87 e8       	ldi	r24, 0x87	; 135
  114:	93 e1       	ldi	r25, 0x13	; 19
  116:	91 83       	std	Z+1, r25	; 0x01

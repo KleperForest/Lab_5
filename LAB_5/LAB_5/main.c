@@ -20,6 +20,7 @@
 	   //OCR1A = 1999; // Set initial position to 90 degrees
 
 	   while (1){
+		   
 		   OCR1A = 999; // Set position to 0 degrees
 		   _delay_ms(10000);
 		   OCR1A = 1999; // Set position to 45 degrees
@@ -31,15 +32,5 @@
 		   OCR1A = 4999; // Set position 180to 180 degrees
 		   _delay_ms(10000);
 		   
-		   OCR1B = 999; // Set position to 0 degrees
-		   _delay_ms(10000);
-		   OCR1B = 1999; // Set position to 45 degrees
-		   _delay_ms(10000);
-		   OCR1B = 2999; // Set position to 90 degrees
-		   _delay_ms(10000);
-		   OCR1B = 3999; // Set position to 135 degrees
-		   _delay_ms(10000);
-		   OCR1B = 4999; // Set position 180to 180 degrees
-		   _delay_ms(10000);
 	   }
    }
