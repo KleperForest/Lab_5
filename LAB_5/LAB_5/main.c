@@ -27,7 +27,7 @@ int main(void) {
 }
 
 // Codigo sin librerias .c .h servo
-/*//*********************************************************************
+//*********************************************************************
 // Universidad del Valle de Guatemala
 // IE2023: Programación de Microcontroladores
 // Autor: Alan Gomez
@@ -36,7 +36,7 @@ int main(void) {
 // Hardware: ATmega328p
 // Created: 4/12/2024 12:27:37 AM
 //*********************************************************************
-  
+ /* 
   #include <avr/io.h>
   #include <util/delay.h>
 
@@ -59,5 +59,4 @@ int main(void) {
 		  OCR1A = servo_pos;
 		  _delay_ms(100); // Delay para mostrar en servo
 	  }
-  }
-*/
+  }*/
