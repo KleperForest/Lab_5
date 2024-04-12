@@ -11,9 +11,6 @@
   #include <avr/io.h>
   #include <util/delay.h>
 
-  #define SERVO_MIN_POS 999 // 0 degrees
-  #define SERVO_MAX_POS 4999 // 180 degrees
-
   int main(void)
   {
 	  DDRB |= (1<<PB1); // Set PB1 as output
@@ -26,7 +23,7 @@
 	  ICR1=39999;   //20ms PWM period
 
 	  while (1){
-		  ADCSRA |= (1<<ADSC); // Start ADC conversion
+		  ADCSRA |= (1<<ADSC); // Start ADC 
 		  while (ADCSRA & (1<<ADSC)); // Esperar que la lecura termine
 		  uint16_t servo_pos = ADC * 4.8866;// Mapeo
 		  servo_pos = (servo_pos>=999)? servo_pos : 999;// Evitar que decienda más de 999 ya que es 0 grados
