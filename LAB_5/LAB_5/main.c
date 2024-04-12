@@ -31,7 +31,7 @@
 		  uint16_t servo_pos = ADC * 4.8866;// Mapeo
 		  servo_pos = (servo_pos>=999)? servo_pos : 999;// Evitar que decienda más de 999 ya que es 0 grados
 		  OCR1A = servo_pos;
-		  _delay_ms(100); // Delay for servo to reach position
+		  _delay_ms(100); // Delay for servo to reach positio
 	  }
   }
 
