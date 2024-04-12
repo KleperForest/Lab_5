@@ -10,7 +10,6 @@
   
   #include <avr/io.h>
   #include <util/delay.h>
-  #include "Controller_Servo.c"
 
   int main(void)
   {

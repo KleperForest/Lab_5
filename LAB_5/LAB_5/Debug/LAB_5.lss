@@ -70,17 +70,17 @@ Disassembly of section .text:
   7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000080 <main>:
-  #define SERVO_MIN_POS 999 // 0 degrees
-  #define SERVO_MAX_POS 4999 // 180 degrees
+  #include <avr/io.h>
+  #include <util/delay.h>
 
   int main(void)
   {
-	  DDRB |= (1<<PB1); // Set PB1 as output
+	  DDRB |= (1<<PB1); // PB1 salida
   80:	84 b1       	in	r24, 0x04	; 4
   82:	82 60       	ori	r24, 0x02	; 2
   84:	84 b9       	out	0x04, r24	; 4
 
-	  ADMUX |= (1<<REFS0) | (1<<MUX0); // Set reference voltage to AVCC and select ADC1 as input
+	  ADMUX |= (1<<REFS0) | (1<<MUX0); // Referencia 5V y usar ADC1
   86:	ec e7       	ldi	r30, 0x7C	; 124
   88:	f0 e0       	ldi	r31, 0x00	; 0
   8a:	80 81       	ld	r24, Z
@@ -112,13 +112,13 @@ Disassembly of section .text:
   b6:	80 93 86 00 	sts	0x0086, r24	; 0x800086 <__TEXT_REGION_LENGTH__+0x7f8086>
 
 	  while (1){
-		  ADCSRA |= (1<<ADSC); // Start ADC conversion
+		  ADCSRA |= (1<<ADSC); //Conversion ADC
   ba:	ea e7       	ldi	r30, 0x7A	; 122
   bc:	f0 e0       	ldi	r31, 0x00	; 0
   be:	80 81       	ld	r24, Z
   c0:	80 64       	ori	r24, 0x40	; 64
   c2:	80 83       	st	Z, r24
-		  while (ADCSRA & (1<<ADSC)); // Wait for conversion to complete
+		  while (ADCSRA & (1<<ADSC)); // Esperar que la lecura termine
   c4:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
   c8:	86 fd       	sbrc	r24, 6
   ca:	fc cf       	rjmp	.-8      	; 0xc4 <main+0x44>
