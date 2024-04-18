@@ -7,29 +7,35 @@
 // Hardware: ATmega328p
 // Created: 4/12/2024 12:27:37 AM
 //*********************************************************************
-  
-  #include <avr/io.h>
-  #include <util/delay.h>
+#define F_CPU 12000000
+#include <avr/io.h>
+#include <util/delay.h>
 
-  int main(void)
-  {
-	  DDRB |= (1<<PB1); // PB1 salida
 
-	  ADMUX |= (1<<REFS0) | (1<<MUX0); // Referencia 5V y usar ADC1
-	  ADCSRA |= (1<<ADEN) | (1<<ADPS2) | (1<<ADPS1); // Enable ADC and set prescaler to 64
+int main(void)
+{
+	//Configuracion el pin 
+	DDRD |=(1<<PD5);
+	
+	//Modo Fast PWM
+	TCCR0B &= ~(1<<WGM02);
+	TCCR0A |= (1<<WGM01);
+	TCCR0A |= (1<<WGM00);
+	
+	// Prescaler 1024
+	TCCR0B |= (1<<CS02);
+	TCCR0B &= ~(1<<CS01);
+	TCCR0B |= (1<<CS00);
+	
+	// Pin oc0b
+	TCCR0A |=(1<<COM0B1);
+	TCCR0A &= ~(1<<COM0B0);
+	
+	OCR0B = 10;//Ciclos de trabajo.
 
-	  TCCR1A |= (1<<COM1A1) | (1<<WGM11); // Fast PWM, non-inverting mode
-	  TCCR1B |= (1<<WGM13) | (1<<WGM12) | (1<<CS11); // Fast PWM, prescaler = 8
-	  ICR1=39999;   //20ms PWM period
+	while (1){
 
-	  while (1){
-		  ADCSRA |= (1<<ADSC); //Conversion ADC
-		  while (ADCSRA & (1<<ADSC)); // Esperar que la lecura termine
-		  uint16_t servo_pos = ADC * 4.8866;// Mapeo
-		  servo_pos = (servo_pos>=999)? servo_pos : 999;// Evitar que decienda más de 999 ya que es 0 grados
-		  OCR1A = servo_pos;
-		  _delay_ms(100); // Delay para mostrar en servo
-	  }
-  }
+	}
+}
 
 
