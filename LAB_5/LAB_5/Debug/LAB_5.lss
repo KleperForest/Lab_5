@@ -105,9 +105,9 @@ Disassembly of section .text:
   a8:	80 81       	ld	r24, Z
   aa:	8a 61       	ori	r24, 0x1A	; 26
   ac:	80 83       	st	Z, r24
-		ICR1=39999;   //20ms PWM period
-  ae:	8f e3       	ldi	r24, 0x3F	; 63
-  b0:	9c e9       	ldi	r25, 0x9C	; 156
+		ICR1=29999;   //20ms PWM period
+  ae:	8f e2       	ldi	r24, 0x2F	; 47
+  b0:	95 e7       	ldi	r25, 0x75	; 117
   b2:	90 93 87 00 	sts	0x0087, r25	; 0x800087 <__TEXT_REGION_LENGTH__+0x7f8087>
   b6:	80 93 86 00 	sts	0x0086, r24	; 0x800086 <__TEXT_REGION_LENGTH__+0x7f8086>
 	  

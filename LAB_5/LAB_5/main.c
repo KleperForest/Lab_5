@@ -22,7 +22,7 @@
 
 		TCCR1A |= (1<<COM1A1) | (1<<WGM11); // Fast PWM, non-inverting mode
 		TCCR1B |= (1<<WGM13) | (1<<WGM12) | (1<<CS11); // Fast PWM, prescaler = 8
-		ICR1=39999;   //20ms PWM period
+		ICR1=29999;   //20ms PWM period
 	  
 		//Timer 2
 
