@@ -79,13 +79,12 @@ void initADC(void){
 	// ADC a utilizar
 	ADMUX = 6;
 	
-	// Utilizando AVCC = 5V internos
+	// Utilizando AVCC REF 5V 
 	ADMUX |= (1<<REFS0);
 	ADMUX &= ~(1<<REFS1);
 	
 	// Justificacion a la Izquierda
 	ADMUX |= (1<<ADLAR);
-	
 	ADCSRA = 0;// Clear ADCSRA
 	
 	// Habilitando el ADC
@@ -94,14 +93,13 @@ void initADC(void){
 	//Habilitamos las interrupciones
 	ADCSRA |= (1<<ADIE);
 	
-	// Habilitamos el Prescaler de 127
+	// Habilitamos el Prescaler de 128
 	ADCSRA |= (1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0);
 	DIDR0 |= (1<<ADC0D);
 }
 
 ISR(ADC_vect){
-	ADC_TIMER = ADCH;// Cargar ADCH 8bits a ADC
-	
+	ADC_TIMER = ADCH;// Cargar ADCH 8bits a ADC_tIMER
 	
 	ADCSRA |= (1<<ADIF);//Interrupcion flag ADC
 	ADCSRA |= (1<<ADSC);//Start Conversion-
