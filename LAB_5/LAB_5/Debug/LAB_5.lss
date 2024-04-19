@@ -148,7 +148,7 @@ void initADC(void){
 
 000000ce <setup>:
 		OCR2A = valorADC2;
-	}
+    }
 }
 
 void setup(void){
@@ -201,7 +201,7 @@ uint8_t valorADC2;
 
 int main(void)
 {
-	setup();
+    setup();
  102:	0e 94 67 00 	call	0xce	; 0xce <setup>
 	ADCSRA |= (1<<ADSC);
  106:	ea e7       	ldi	r30, 0x7A	; 122
@@ -210,9 +210,9 @@ int main(void)
  10c:	80 64       	ori	r24, 0x40	; 64
  10e:	80 83       	st	Z, r24
 	
-	while (1){
+    while (1){
 		OCR2A = valorADC2;
- 110:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 110:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
  114:	80 93 b3 00 	sts	0x00B3, r24	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7f80b3>
  118:	fb cf       	rjmp	.-10     	; 0x110 <main+0xe>
 
@@ -233,7 +233,7 @@ ISR(ADC_vect){
  128:	ff 93       	push	r31
 	valorADC2 = ADCH;
  12a:	80 91 79 00 	lds	r24, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
- 12e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 12e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
 	
 	
 	ADCSRA |= (1<<ADIF);
