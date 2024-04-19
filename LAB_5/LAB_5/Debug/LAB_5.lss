@@ -17,13 +17,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   6 .debug_abbrev 000005f8  00000000  00000000  0000082c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000020f  00000000  00000000  00000e24  2**0
+  7 .debug_line   0000020b  00000000  00000000  00000e24  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000024  00000000  00000000  00001034  2**2
+  8 .debug_frame  00000024  00000000  00000000  00001030  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000375  00000000  00000000  00001058  2**0
+  9 .debug_str    00000375  00000000  00000000  00001054  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000010  00000000  00000000  000013cd  2**0
+ 10 .debug_ranges 00000010  00000000  00000000  000013c9  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -75,9 +75,9 @@ Disassembly of section .text:
 int main(void)
 {
 	//Configuracion el pin 
-	DDRD |=(1<<PD5);
+	DDRD |=(1<<PB3);
   80:	8a b1       	in	r24, 0x0a	; 10
-  82:	80 62       	ori	r24, 0x20	; 32
+  82:	88 60       	ori	r24, 0x08	; 8
   84:	8a b9       	out	0x0a, r24	; 10
 	
 	//Modo Fast PWM
@@ -121,13 +121,11 @@ int main(void)
   b8:	80 81       	ld	r24, Z
   ba:	8f 7e       	andi	r24, 0xEF	; 239
   bc:	80 83       	st	Z, r24
-
-
-	while (1){
-		OCR2B = 10;//Ciclos de trabajo.
+	
+	OCR2B = 10;//Ciclos de trabajo.
   be:	8a e0       	ldi	r24, 0x0A	; 10
   c0:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
-  c4:	fc cf       	rjmp	.-8      	; 0xbe <main+0x3e>
+  c4:	ff cf       	rjmp	.-2      	; 0xc4 <main+0x44>
 
 000000c6 <_exit>:
   c6:	f8 94       	cli

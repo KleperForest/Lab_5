@@ -15,7 +15,7 @@
 int main(void)
 {
 	//Configuracion el pin 
-	DDRD |=(1<<PD5);
+	DDRD |=(1<<PB3);
 	
 	//Modo Fast PWM
 	TCCR2B &= ~(1<<WGM22);
@@ -30,10 +30,11 @@ int main(void)
 	// Pin oc0b
 	TCCR2A |=(1<<COM2B1);
 	TCCR2A &= ~(1<<COM2B0);
-
+	
+	OCR2B = 10;//Ciclos de trabajo.
 
 	while (1){
-		OCR2B = 10;//Ciclos de trabajo.
+		
 	}
 }
 
