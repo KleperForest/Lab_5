@@ -18,20 +18,20 @@ int main(void)
 	DDRD |=(1<<PD5);
 	
 	//Modo Fast PWM
-	TCCR0B &= ~(1<<WGM02);
-	TCCR0A |= (1<<WGM01);
-	TCCR0A |= (1<<WGM00);
-	
+	TCCR2B &= ~(1<<WGM22);
+	TCCR2A |= (1<<WGM20);
+	TCCR2A |= (1<<WGM21);
+	''
 	// Prescaler 1024
-	TCCR0B |= (1<<CS02);
-	TCCR0B &= ~(1<<CS01);
-	TCCR0B |= (1<<CS00);
+	TCCR2B |= (1<<CS22);
+	TCCR2B &= ~(1<<CS21);
+	TCCR2B |= (1<<CS20);
 	
 	// Pin oc0b
-	TCCR0A |=(1<<COM0B1);
-	TCCR0A &= ~(1<<COM0B0);
+	TCCR2A |=(1<<COM2B1);
+	TCCR2A &= ~(1<<COM2B0);
 	
-	OCR0B = 10;//Ciclos de trabajo.
+	OCR2B = 10;//Ciclos de trabajo.
 
 	while (1){
 
