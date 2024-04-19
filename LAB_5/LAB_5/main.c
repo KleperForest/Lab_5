@@ -21,7 +21,7 @@ int main(void)
 	TCCR2B &= ~(1<<WGM22);
 	TCCR2A |= (1<<WGM20);
 	TCCR2A |= (1<<WGM21);
-	''
+
 	// Prescaler 1024
 	TCCR2B |= (1<<CS22);
 	TCCR2B &= ~(1<<CS21);
